@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 * Description: This program demonstrates GitHUB and version control 
 * best practices, we also explore unit testing
 *
-* Version: 0.5 - Added Lesson1 Unit Test
+* Version: 0.6 - Refractor OutputStringToConsole
 */
 
 namespace COMP123_s2016_Lesson1B
@@ -70,14 +70,9 @@ namespace COMP123_s2016_Lesson1B
 
         public static string OutputStringToConsole(string outputString, bool hasNewLine)
         {
-            if(hasNewLine)
-            {
-                Console.WriteLine(outputString);
-            }
-            else
-            {
-                Console.Write(outputString);
-            }
+            // refractor using the ternary operator
+            string suffixString = hasNewLine ? "\n" : "";
+            Console.Write(outputString + suffixString);
 
             return outputString;
         }
