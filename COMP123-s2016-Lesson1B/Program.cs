@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 * Description: This program demonstrates GitHUB and version control 
 * best practices, we also explore unit testing
 *
-* Version: 0.3 - Updated comments for driver class Program
+* Version: 0.4 - Extracted outPutStringToConsole from GetUserName method
 */
 
 namespace COMP123_s2016_Lesson1B
@@ -49,13 +49,37 @@ namespace COMP123_s2016_Lesson1B
             string UserName = "";
 
             // WriteLine makes blank space and name under, Write inputs the variable in same line
-            Console.Write("Enter UserName: ");
+            OutputStringToConsole("Enter UserName: ", false);
             UserName = Console.ReadLine();
 
-            Console.WriteLine("/n========================");
-            Console.WriteLine("You Entered: " + UserName);
+            Console.WriteLine("\n========================\n");
+            Console.WriteLine("You Entered: " + UserName + "\n");
 
             return UserName;
+        }
+        
+        /**
+        * This method writes a string to the console. Parameters allow the user to
+        * hoose to add a newLine character
+        *
+        * @method OutputStringToConsole
+        * @param {string} outPutString
+        * @param {bool} hasNewLine
+        * @return {string} outPutString
+        */
+
+        private static string OutputStringToConsole(string outputString, bool hasNewLine)
+        {
+            if(hasNewLine)
+            {
+                Console.WriteLine(outputString);
+            }
+            else
+            {
+                Console.Write(outputString);
+            }
+
+            return outputString;
         }
     }
 }
